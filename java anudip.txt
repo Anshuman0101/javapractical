@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    // FOR NAME  NOUMBER OF STUDENT
+	     System.out.println("Enter Your Full Name:-"); 
+	    String name=sc.nextLine();
+	      // FOR ROLL NOUMBER OF STUDENT
+	    System.out.println("Enter Your ROll No:-"); 
+	   int ROll=sc.nextInt();
+	   //FOR TAKING FIVE SUBJECT INPUT OF THE STUDENT
+	   System.out.println("Enter Your Java Marks:-");
+	   int java=sc.nextInt();
+	   System.out.println("Enter Your AI Marks:-");
+	   int AI=sc.nextInt();
+	    System.out.println("Enter Your .Net Marks:-");
+	   int dotnet=sc.nextInt();
+	   System.out.println("Enter Your E-Commerce Marks:-");
+	   int EComm=sc.nextInt();
+	   System.out.println("Enter Your C-language Marks:-");
+	   int Clang=sc.nextInt();
+	   int sum = java+AI+dotnet+EComm+Clang;
+	   System.out.println("SUM OF FIVE SUBJECT :-");
+      System.out.println(sum);
+       int percentage=sum/5;
+       System.out.println("Your percentage is :-");
+      System.out.println(percentage);
+      
+	}
+		
+}
