@@ -1,0 +1,25 @@
+//Q. WAP TO TAKE SELLING PRICE AND COST PRICE FROM USER AND PRINT PROFIT LOSS.
+import java.util.*;
+public class Prof_Loss
+{
+	public static void main(String[] args) {
+	    int sell,cost;// VARIABLE DECLARITION
+	    Scanner sc=new Scanner(System.in);// IT IS USED FOR TAKING USER INPUT
+	    System.out.println("Enter Your Selling Price:-");
+	    sell=sc.nextInt();// STORING FIRST VALUE
+	    System.out.println("Enter Your cost Price:-");
+	    cost=sc.nextInt();//STORING SECOUND VALUE
+	    
+	if(sell>cost){//APPLYINF IF ELSE
+	   
+	  System.out.println("Your are In :-PROFIT");
+	  
+	    
+	}
+	else{
+	   
+	    	    System.out.println("Enter are in :-LOSS");
+	    	   
+	}
+	}
+}
