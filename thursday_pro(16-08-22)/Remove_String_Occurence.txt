@@ -1,0 +1,48 @@
+/*Write a program to accept a string from the user and accept a 
+ * character from the user and remove all occurrences of a given
+ *  character from input String.*/
+import java.util.Scanner;
+
+public class REMOVE_OCCURENCE {
+
+	
+Scanner sc=new Scanner(System.in);
+//Globally declared the Variable...
+ static String str;
+ static char ch;
+public static void main(String[] args) {
+	//Creating Object of class..
+	REMOVE_OCCURENCE obj=new REMOVE_OCCURENCE();
+	// calling method by using obj
+	obj.subt_char();
+	
+}
+// Creating method of accept the user input..
+public void accept() {
+	//Accepting string and store ..
+	System.out.println("Enter the String of User :-");
+	str=sc.nextLine();
+	//Accepting string and store ..
+	System.out.println("Enter the Character:-");
+	ch=sc.next().charAt(0);
+}
+//Creating method of subt_char..
+public void subt_char() {
+	//reuse of accept method ..
+	accept();
+	// declaring a variable..
+	int i;
+	char[] delete_ch=str.toCharArray();
+	//loop is used to check condition of index value..
+	for( i=0;i<delete_ch.length;i++) {
+		if(delete_ch[i]==ch) {
+			delete_ch[i]=' ';
+			continue;
+		}
+	}
+	//display the String after delete the character from string..
+	System.out.println("After delete the "+ch+" from String"+" ");
+	System.out.println(delete_ch);
+}
+
+}

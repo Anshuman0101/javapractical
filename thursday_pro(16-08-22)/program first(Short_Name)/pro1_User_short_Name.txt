@@ -1,0 +1,39 @@
+/*Write a program to accept full name form the user and display the 
+ * abbreviations of the first and middle names except the last name
+ * which is displayed as it is.EG: Name:Manoj Rakesh Gupta  . (M.R.Gupta) 
+ */
+import java.util.Scanner;
+public class Short_Name_Dis {
+	//Creating a variable ..
+	String Fir_Name,Midd_Name,Last_Name,Make_short;
+	Scanner sc=new Scanner(System.in);
+
+	public static void main(String[] args) {
+		Short_Name_Dis obj=new Short_Name_Dis ();
+		obj.Make_short(); // Calling in Main..
+
+	}
+	// Creating a method to user_accept the name..
+	public void user_accept() {
+		//Accept and allocate memory for First Name from User..
+		System.out.println("Enter the First Name :-");
+		Fir_Name=sc.next();
+		//Accept and allocate memory for Middle Name from User..
+		System.out.println("Enter the Middle Name:-");
+		Midd_Name=sc.next();
+		//Accept and allocate memory for Last Name from User..
+		System.out.println("Enter the Last Name:-");
+		Last_Name=sc.next();
+	}
+	// Creating another method for making short first and secound word
+	public void Make_short() {
+		user_accept();//print user Name..
+		//Your Full Name...
+		System.out.println("\nYour  full Name : \n"+Fir_Name+" "+Midd_Name+" "+Last_Name);
+		//Making short of first and secound.. 
+		Make_short=Fir_Name.charAt(0)+"."+Midd_Name.charAt(0)+"."+Last_Name;
+		 System.out.println("\nAfter Making-Short of User Name:-\n"+Make_short.toUpperCase());
+	}
+	
+
+}
