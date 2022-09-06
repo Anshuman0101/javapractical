@@ -1,0 +1,30 @@
+// Write a program to create the chained exception where one exception describes the cause of another exception.
+package File_handling;
+
+public class Chained_Except {//main class..
+
+	public static void main(String[] args) {//main method of class..
+		Exeption2();//calling method Exeption2...	
+
+	}
+	static void Exeption1() {//creating method name  Exeption1... 
+		int a,b=0;
+		try {
+			a=10/b;
+			
+		}catch(ArithmeticException e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+	}
+	static void Exeption2() {//creating method name  Exeption1... 
+try {
+	Exeption1();//calling one method in secound method..
+}
+catch(NullPointerException e) {
+	e.getCause();
+}
+}}

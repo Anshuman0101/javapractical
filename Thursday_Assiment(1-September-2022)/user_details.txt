@@ -1,0 +1,74 @@
+// Write a program to accept N User details Name, No , Address, 
+//email , UserID , Password .Store user ID and password in the file 
+//.Accept  a  userID from the user and delete that record from the 
+//file.
+import java.io.*;
+import java.util.Scanner;
+
+public class Store_userdetails {
+	static String fileNa;//global file name declarition..
+	static Scanner sc=new Scanner(System.in);//global Scanner declarition
+	public static void main(String[] args) throws IOException {//main method of class
+		createFile();//call create file..
+		ReadFile();//call 	ReadFile file..
+		WriteFile();//call WriteFile file..
+	}
+	static void createFile() throws IOException {
+		//create method name createFile..
+		System.out.println("Enter youe file Name for create :-");
+		fileNa=sc.nextLine();//storing file name..
+		File cf=new File("C:\\Akhlak\\"+fileNa);//location of  file...
+		cf.createNewFile();
+		System.out.println(" Succesfully file created...");
+	}
+	static void ReadFile() throws IOException {
+		//create method name createFile..
+		System.out.println("Enter youe file Name for ReadFile:-");
+		fileNa=sc.nextLine();
+		File rf=new File("C:\\Akhlak\\"+fileNa);
+		Scanner scan=new Scanner(rf);
+		while(scan.hasNext()) {
+		String store=scan.nextLine();
+		System.out.println(store);
+		}
+	}
+	static void WriteFile() throws IOException {
+		String name,email,address,userId,password;
+		
+		System.out.println("Enter youe file Name for  WriteFile:-");
+		fileNa=sc.nextLine();
+		File wf=new File("C:\\Akhlak\\"+fileNa);
+		FileWriter fw=new FileWriter(wf,true);
+		PrintWriter pw=new PrintWriter(fw);
+	System.out.println("Enter your name:-");
+	name=sc.nextLine();
+	System.out.println("Enter your Email:-");
+	email=sc.nextLine();
+	System.out.println("Enter your address:-");
+	address=sc.nextLine();
+	System.out.println("Enter your userId:-");
+	userId=sc.nextLine();
+	System.out.println("Enter your Password:-");
+	password=sc.nextLine();
+	pw.write("\n"+name+", "+email+", "+address+", "+userId+", "+password);
+	pw.close();
+	fw.close();}
+	public static void details_delete() throws IOException {
+		Scanner sc=new Scanner(System.in);
+		File input_file = new File(fileNa);
+		File temp_file = new File(fileNa);
+		BufferedReader my_reader = new BufferedReader(new FileReader(input_file));
+		BufferedWriter my_writer = new BufferedWriter(new FileWriter(temp_file));
+		System.out.println("enter user id");
+		String lineToRemove =sc.next();//userid to delete
+		String current_line;
+		//check the condition 
+		while((current_line = my_reader.readLine()) != null) {
+		   String trimmedLine = current_line.trim();
+		   if(trimmedLine.equals(lineToRemove)) continue;
+		   my_writer.write(current_line + System.getProperty("line.separator"));
+		  
+		}
+	
+	}
+}
