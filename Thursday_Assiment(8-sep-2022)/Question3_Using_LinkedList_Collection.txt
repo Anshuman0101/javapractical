@@ -1,0 +1,43 @@
+import java.util.*;
+public class LinkedList_Collection {
+	//main CLass...
+	
+		 public <T> List<T> union(List<T> list1, List<T> list2)
+		 //union decarition with two list..
+		 //union=list1+list2=display..
+	     {
+	          Set<T> set = new HashSet<T>();
+	          set.addAll(list1);
+	          //adding all element in set by the helpof  addAll..
+	          set.addAll(list2);
+	          return new LinkedList<T>(set);
+	     }
+	     public <T> List<T> intersection(List<T> list1, List<T> list2)
+	     //decleartion  of of list with intersection... 
+	     //common element...
+	     {
+	          List<T> list = new LinkedList<T>();
+	          for (T t : list1)
+	          {
+	               if(list2.contains(t))
+	               {
+	                    list.add(t);
+	               }
+	          }
+	          return list;
+	     }
+	     public static void main(String... args) throws Exception
+	     {
+	          List<String> list1 = new LinkedList<String>(Arrays.asList("A", "E", "I"));
+	          List<String> list2 = new LinkedList<String>(Arrays.asList("B", "E", "O", "U", "F"));
+	          System.out.println("***************************");
+	          System.out.println("Intersection of LinkedList.");
+	          System.out.println(new  LinkedList_Collection().intersection(list1, list2));
+	          System.out.println("=========================\n");
+	          System.out.println("Union of LinkedList.");
+	          System.out.println(new  LinkedList_Collection().union(list1, list2));
+	          System.out.println("****************************\n");
+	     }
+
+
+	}

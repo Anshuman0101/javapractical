@@ -1,0 +1,80 @@
+//write a program to accept name, Email, Phone Number, Percentage
+//from the user and store the data using arraylist.Accept name from 
+//the user and remove all the data from the list and display the 
+//output. and also perform the searching operation with the help of
+//the name
+import java.util.*;
+
+public class Accept_StoreDetalis_search {
+	//This is the main CLass...
+	static int num;
+	//num is taking in static for accepting number of student to print..
+	
+static	String name,email,ph_no,per,n1;
+//taking four string variable...
+	static Scanner sc=new Scanner(System.in);
+	//scanner is taken for acepting input..
+	public static void main(String[] args) {
+		//this main method of main class..
+		accept_Details();	ArrayList();//calling method in main method ..
+		ArrayList();
+	}
+	static void accept_Details() {
+		// creating method 
+		System.out.println("Enter no of student you want to Store:-");
+		  num=sc.nextInt();
+	//applying loop for call that method that no of time given by user..
+		  //for accepting and store Information..
+	for(int i=0;i<num;i++) {
+	System.out.println("Enter Student Name:-");
+	name=sc.nextLine();
+	System.out.println("Enter Student Email:-");
+	email=sc.nextLine();
+	System.out.println("Enter Student Ph_no:-");
+	ph_no=sc.nextLine();
+	System.out.println("Enter Student Percent:-");
+	per=sc.nextLine();
+	}
+	
+		
+	}
+	static void ArrayList() {
+		//creating another method ..
+		//calling method in another method..
+		
+		ArrayList<String>list1=new ArrayList<String>(num);
+		//Taking list for store name ..
+		ArrayList<String>list2=new ArrayList<String>(num);
+		//Taking list for store email ..
+		ArrayList<String>list3=new ArrayList<String>(num);
+		//Taking list for store ph_no ..
+		ArrayList<String>list4=new ArrayList<String>(num);
+		//Taking list for store per ..
+		for(int i=0;i<num;i++) {
+			list1.add(name);
+			list2.add(email);
+			list3.add(ph_no);
+			list4.add(per);
+		}
+		
+	
+	System.out.println("Name : "+name);	
+	// for print the name ArrayList 
+	System.out.println("Email : "+email);	
+	// for print  the email ArrayList 
+	System.out.println("Phone No : "+ph_no);
+	// for print the Phone-No ArrayList 
+	System.out.println("Percentage : "+per);
+	//for print  the Percentage ArrayList 
+	
+	System.out.println("Enter the Name to delete : ");
+	n1 = sc.next();		
+	list1.contains(n1);//contains  
+	if(n1.equalsIgnoreCase(name)) {
+		list1.remove(name);						
+		// removing the list of perticular list
+		System.out.println("Name : "+list1);
+	}
+	
+	}
+}
