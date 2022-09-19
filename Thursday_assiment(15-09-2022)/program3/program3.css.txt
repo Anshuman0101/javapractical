@@ -1,0 +1,99 @@
+body{
+    background-image: linear-gradient(orange,white,green);
+    background-blend-mode: hard-light;
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:auto;
+}
+.calculator{
+    position: relative;
+width: 500px;
+height: 95vh;
+/* border-radius: 10px; */
+padding: 5px;
+border: 30px solid transparent;
+border-image: url('img5.jpg') round 30;
+box-sizing: border-box;
+box-shadow: 0px 0px 50px rgb(0, 0, 0);
+
+/* overflow: hidden; */
+
+}
+.calculator form{
+    margin: 0px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 85px;
+    box-sizing: border-box;
+}
+.calculator form input{
+    width: 98.5%;
+    height: 100%;
+    /* rotate:0deg; */
+    color: dodgerblue;
+    background-color: white;
+    font-size: x-large;
+    font-family: cursive;
+}
+.btn{
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: transparent;
+    padding: 10px;
+    gap: 5px;
+    width: 95.5%;
+}
+
+.btn input{
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 25px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0.8;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.btn button:hover{
+    background-color: lightgray;
+    color: white;
+    border: none;
+}
+.btn button:last-child{
+    grid-column-start: 35px;
+}
+.btn .last{
+    position:absolute;
+    width: 175px;
+    bottom: 10px;
+    right: 11px;
+}
+.heading{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    text-align: center;
+    color: white;
+    font-size:64px;
+    text-shadow:0px 0px 50px red,0px 0px 100px blue;
+    font-family: cursive;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+
+
+}

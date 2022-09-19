@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="program.css">
+</head>
+<body>
+    <div class="calculator">
+        <form action="#" id="form" name="form">
+            <input type="text" placeholder="0" id="input" name="input">
+        </form>
+        <div class="btn">
+            <input type = "button" value = "AC" onclick = "input.value='' " id="clear">  
+            <input type="button" onclick="input.value=input.value.toString().slice(0,-1)" id="del" value="Del.">
+            <input type = "button" value = "-" onclick = "input.value += '-' ">  
+            <input type = "button" value = "+" onclick = "input.value += '+' ">  
+            <input type = "button" value = "1" onclick = "input.value += '1' ">  
+            <input type = "button" value = "2" onclick = "input.value += '2' ">  
+            <input type = "button" value = "3" onclick = "input.value += '3' ">  
+            <input type = "button" value = "*" onclick = "input.value += '*' ">  
+            <input type = "button" value = "4" onclick = "input.value += '4' ">  
+            <input type = "button" value = "5" onclick = "input.value += '5' ">  
+            <input type = "button" value = "6" onclick = "input.value += '6' ">  
+            <input type = "button" value = "/" onclick = "input.value += '/' ">  
+            <input type = "button" value = "7" onclick = "input.value += '7' ">  
+            <input type = "button" value = "8" onclick = "input.value += '8' ">  
+            <input type = "button" value = "9" onclick = "input.value += '9' ">  
+            <input type = "button" value = "." onclick = "input.value += '.' ">  
+            <input type = "button" value = "0" onclick = "input.value += '0' ">  
+            <input type = "button" value = "%" onclick = "input.value += '%' ">  
+            <input class="last" type = "button" value = "=" onclick = "input.value = eval(input.value)">  
+        </div>
+    </div>
+
+    <div class="heading">This is a calculator with using JavaScript</div>
+
+
+</body>
+</html>
