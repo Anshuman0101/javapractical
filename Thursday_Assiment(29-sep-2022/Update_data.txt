@@ -1,0 +1,172 @@
+package thursday_Assiment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Update_data extends Delete_data {
+	
+
+	public static void update() throws Exception {
+		int number;
+		
+		
+		
+		
+		
+
+		int id;
+		
+		char ch;
+		do {
+		System.out.println(" Press 1 for update name \n Press 2 for update programming language \n Press 3 for update city \n Press 4 for update phone no\n press 5 for update DOB ");
+		
+		System.out.println("Enter a number :");
+		number = sc.nextInt();
+		
+		switch(number) {
+		 case 1:
+			 String url = "jdbc:mysql://localhost:3306/student_Record";
+				String user = "root";
+				String pass = "010101";
+				
+			System.out.print("Enter student name :");
+			Name=sc.next();
+			 
+			System.out.println("Enter student Id :");
+			id=sc.nextInt();
+			
+			String query = " update Record set student_name = ? where student_ID = ?";
+			
+			Connection con = DriverManager.getConnection(url,user,pass);
+			PreparedStatement ps = con.prepareStatement(query);
+			
+			ps.setString(1,Name);
+			ps.setInt(2,id);
+			
+			int res = ps.executeUpdate();
+			
+			System.out.println("Result : "+res);
+			ps.close();
+			con.close();
+			
+			break;
+		 
+		 case 2:
+			 String url1 = "jdbc:mysql://localhost:3306/student_Record";
+				String user1 = "root";
+				String pass1 = "010101";
+
+				
+			System.out.print("Enter student programming language :-");
+			prog=sc.nextLine();
+			 
+			 System.out.println("Enter student Id :");
+				id=sc.nextInt();
+				
+				String query1 = " update Record set student_prog = ? where student_ID = ?";
+				Connection con1 = DriverManager.getConnection(url1,user1,pass1);
+				PreparedStatement ps1 = con1.prepareStatement(query1);
+				
+				ps1.setString(1,prog);
+				ps1.setInt(2,id);
+				
+				int res1 = ps1.executeUpdate();
+				
+				System.out.println("Result : "+res1);
+				ps1.close();
+				con1.close();
+				
+			    break;
+		 case 3:
+			   String url11 = "jdbc:mysql://localhost:3306/student_Record";
+				String user2 = "root";
+				String pass2 = "010101";
+				
+			 System.out.print("Enter student city :");
+			 city=sc.next();
+				
+			 System.out.println("Enter student Id :");
+				id=sc.nextInt();
+		
+				
+				String query2 = " update Record set student_city = ? where s_id= ?";
+				
+				Connection con2 = DriverManager.getConnection(url11,user2,pass2);
+				PreparedStatement ps2 = con2.prepareStatement(query2);
+				
+				ps2.setString(1,city);
+				ps2.setInt(2,id);
+				
+				int res2 = ps2.executeUpdate();
+				
+				System.out.println("Result : "+res2);
+				ps2.close();
+				con2.close();
+
+			    break;
+		 case 4:
+			 String url3 = "jdbc:mysql://localhost:3306/student_Record";
+				String user3 = "root";
+				String pass3 = "010101";
+			 System.out.print("Enter student phone number :");
+			 phone=sc.next();
+				
+			 System.out.println("Enter student Id :");
+				id=sc.nextInt();
+				
+				String query3 = " update Record set student_pho  = ? where s_id= ?";
+				
+				Connection con3 = DriverManager.getConnection(url3,user3,pass3);
+				PreparedStatement ps3 = con3.prepareStatement(query3);
+				
+				ps3.setString(1,phone);
+				ps3.setInt(2,id);
+				
+				int res3 = ps3.executeUpdate();
+				
+				System.out.println("Result : "+res3);
+				ps3.close();
+				con3.close();
+				
+				break;
+		 case 5:
+			 String url31 = "jdbc:mysql://localhost:3306/student_Record";
+				String user31 = "root";
+				String pass31 = "010101";
+			 System.out.print("Enter student DOB :");
+			 phone=sc.next();
+				
+			 System.out.println("Enter student ID:");
+				id=sc.nextInt();
+				
+				String query31 = " update Record set dob  = ? where s_id= ?";
+				
+				Connection con31 = DriverManager.getConnection(url31,user31,pass31);
+				PreparedStatement ps31 = con31.prepareStatement(query31);
+				
+				ps31.setString(1,dob);
+				ps31.setInt(2,id);
+				
+				int res31 = ps31.executeUpdate();
+				
+				System.out.println("Result : "+res31);
+				ps31.close();
+				con31.close();
+				
+				break;
+		
+		default:
+			System.out.println("your input wrong value :-)");
+		 }
+		
+		System.out.println("Would you like to continue this procsses so press Y / N");
+		ch=sc.next().charAt(0);
+	}while(ch=='y' || ch=='Y');
+		
+	System.out.println("Thank You For Using This Application");	
+	}
+	}
+
+

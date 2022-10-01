@@ -1,0 +1,60 @@
+package thursday_Assiment;
+
+import java.sql.SQLException;
+
+public class Main_class extends Update_data {
+
+	public static void main(String[] args) throws Exception {
+		
+		System.out.println("*********Welcome in Student Managemet Application**********");
+		 Main_class obj=new  Main_class();
+		try {
+			obj.switchmethod();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void switchmethod() throws Exception{
+		Addition_Data obj=new Addition_Data();
+		Delete_data obj2 =new Delete_data();
+		Update_data obj3=new Update_data();
+		Display_data  obj4=new Display_data ();
+		char s;
+		int choose;
+		
+
+		do {
+			System.out.println(" Press 1 for Add  Details \n Press 2 for Update Details \n Press 3 for Delete \n Press 4 for Display Details ");
+			System.out.println("Enter a number ");
+			choose=sc.nextInt();
+			
+			switch(choose) {
+			case 1:
+				obj.add();
+				break;
+			case 2:
+				obj2.delete();
+				break;
+			case 3:
+				obj3. update();
+				break;
+			case 4:
+				obj4.show();
+				break;
+			default:
+				System.out.println("You input wrong value plz try Again :-)");
+				
+			}
+			
+			System.out.println("Would you like to continue this procsses so press Y / N");
+			s=sc.next().charAt(0);
+		}while(s=='y' || s=='Y');
+		System.out.println("Thank You For Adding Student :-)");
+	}
+
+	
+		
+	}
+

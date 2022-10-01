@@ -1,0 +1,25 @@
+package thursday_Assiment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Delete_data extends Addition_Data {
+
+public static void delete() throws Exception {
+	String url="jdbc:mysql://localhost:3306/student_Record";
+	String User_id="root";
+	String password="010101";
+	System.out.println("Enter Name Which you want to delete:-");
+	Name=sc.nextLine();
+	String quary="delete from  Record where student_name =?";
+	Connection con=DriverManager.getConnection(url,User_id,password);
+	PreparedStatement ps=con.prepareStatement(quary);
+	ps.setString(1,Name);
+	int result=ps.executeUpdate();
+	System.out.println(ps);
+	con.close();
+	ps.close();
+}
+}

@@ -1,0 +1,47 @@
+package thursday_Assiment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Addition_Data {
+static 	Scanner sc=new Scanner(System.in);
+static String  Name;
+static String phone;
+static String prog;
+static String city;
+static String dob;
+	public static  void add() throws SQLException {
+		String url="jdbc:mysql://localhost:3306/student_Record";
+		String User_Id="root";
+		String password="010101";
+		
+		System.out.println("Enter Your Name:-");
+		Name=sc.nextLine();
+		System.out.println("Enter Two Programming language :-");
+		String prog=sc.nextLine();
+		System.out.println("Enter Your City:-");
+		String city=sc.nextLine();
+		System.out.println("Enter Your Ph_no:-");
+		 phone=sc.nextLine();
+		
+		System.out.println("Enter YOur DOB:-");
+	      String dob=sc.nextLine();
+	      String quary="insert into  Record(student_name,student_prog,student_city,student_pho,student_dob)values(?,?,?,?,?)";
+		Connection con=DriverManager.getConnection(url,User_Id,password);
+		PreparedStatement ps =con.prepareStatement(quary);
+		ps.setString(1,Name);
+		ps.setString(2,prog);
+		ps.setString(3,city);
+		ps.setString(4,phone);
+		ps.setString(5,dob);
+		int result=ps.executeUpdate();
+		System.out.println(result);
+		con.close();
+		ps.close();
+		
+	}
+}
+

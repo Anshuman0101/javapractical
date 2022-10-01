@@ -1,0 +1,38 @@
+package thursday_Assiment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Display_data  extends  Update_data {
+
+
+		public static void show() throws Exception {
+			String url = "jdbc:mysql://localhost:3306/student_data";
+			String user = "root";
+			String pass = "root";
+			
+			
+			 ResultSet rst = null;
+				String sh = "select * from student_table";
+				Connection con =DriverManager.getConnection(url,user,pass);
+				PreparedStatement ps1 = con.prepareStatement(sh);
+
+				rst = ps1.executeQuery();
+				System.out.println("Id\t\tName\t\tProgramming_lang\t\tcity\t\tphone\tdob \n");
+		        while(rst.next()) {
+		        	System.out.println();
+		           System.out.print(rst.getInt(1)+",");
+		           System.out.print("\t\t"+rst.getString(2)+",");
+		           System.out.print("\t\t"+rst.getString(3)+",");
+		           System.out.print("\t\t"+rst.getString(4)+",");
+		           System.out.print("\t"+rst.getString(5));
+		           System.out.println();
+		           
+		        }
+				ps1.close();
+				con.close();
+
+}}
