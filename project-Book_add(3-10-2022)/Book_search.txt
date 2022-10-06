@@ -1,0 +1,129 @@
+package Book_Store;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Book_Search {
+	public static void serach() throws Exception {
+		// taking variable 
+		String name;
+		String category = null;
+		String author;
+		int option;
+		char  re_use;
+		Scanner sc =new Scanner(System.in);
+		//applying do_while loop
+		do {
+			System.out.println("Press 1 to Search Book by TITLE\n "
+					+ "press 2 to Search Book by AUTHOR\n"
+					+ "Press 3 to Search Book by CATEGORY");
+			option=sc.nextInt();
+			//applying switch case..
+			switch(option) {
+			case 1:
+				String url="jdbc:mysql://localhost:3306/Student_Lib_Management";
+				String user_id="root";
+				String password="010101";
+				System.out.println("Enter the Book TITLE Name :-");
+				name=sc.nextLine();
+				String quary="Select * from Student_Lib_Management.table_record where Title=? ";
+				
+				Connection con=DriverManager.getConnection(url,user_id,password);
+				PreparedStatement ps=con.prepareStatement(quary);
+				ps.setString(1, name);
+				ResultSet rst=ps.executeQuery();
+				System.out.println("BookId\t\tBook Title\t\tBook Author\t\tBook Category\t\tBook Price\n");
+			while(rst.next()) {
+				System.out.println(rst.getInt(1)+",");
+				System.out.println("\t\t"+rst.getString(2)+",");
+				System.out.println("\t\t"+rst.getString(3)+",");
+				System.out.println("\t\t"+rst.getString(4)+",");
+				System.out.println("\t\t"+rst.getString(5)+",\n");
+				System.out.println();
+			}
+			ps.close();
+			con.close();
+			break;
+			case 2:
+				String url1="jdbc:mysql://localhost:3306/Student_Lib_Management";
+				String user_id1="root";
+				String password1="010101";
+				System.out.println("Enter the Book By Author Name :-");
+				author=sc.nextLine();
+				String quary1="Select * from Student_Lib_Management.table_record where Author=? ";
+				
+				Connection con1=DriverManager.getConnection(url1,user_id1,password1);
+				PreparedStatement ps1=con1.prepareStatement(quary1);
+				ps1.setString(1, author);
+				ResultSet rst1=ps1.executeQuery();
+				System.out.println("BookId\t\tBook Title\t\tBook Author\t\tBook Category\t\tBook Price\n");
+			while(rst1.next()) {
+				System.out.println(rst1.getInt(1)+",");
+				System.out.println("\t\t"+rst1.getString(2)+",");
+				System.out.println("\t\t"+rst1.getString(3)+",");
+				System.out.println("\t\t"+rst1.getString(4)+",");
+				System.out.println("\t\t"+rst1.getString(5)+",\n");
+				System.out.println();
+			}
+			ps1.close();
+			con1.close();
+			break;
+			case 3:
+				String url2="jdbc:mysql://localhost:3306/Student_Lib_Management";
+				String user_id2="root";
+				String password2="010101";
+				//System.out.println("Enter the Book By Author Name :-");
+				//author=sc.nextLine();
+				System.out.println("Choose Appropriate Option which you want to See:-");
+				System.out.println("press 1 for Computer_Science\npress 2 for Science\n3 press 3 for Novel_Story \n4 for digital_Marketing\n5 for Category to Add :-");
+				option=sc.nextInt();
+				switch(option) {
+				case 1:
+			    	category="Computer_Science";
+			    	break;
+			    case 2:
+			    	category="Science";
+			    	break;
+			    case 3:
+			    	category="Novel_Story";
+			    	break;
+			    case 4:
+			    	category="digital_Marketing";
+			    	break;
+			    case 5:
+			    	System.out.println("\nEnter Your Book_Category:-");
+			    	category=sc.nextLine();
+			    	break;
+			    	default:System.out.println("Sorry! give Choose Corret Option:-");
+			    	break;
+				}
+				String quary2="Select * from Student_Lib_Management.table_record where Category=? ";
+				
+				Connection con2=DriverManager.getConnection(url2,user_id2,password2);
+				PreparedStatement ps2=con2.prepareStatement(quary2);
+				ps2.setString(1, category);
+				ResultSet rst2=ps2.executeQuery();
+				System.out.println("BookId\t\tBook Title\t\tBook Author\t\tBook Category\t\tBook Price\n");
+			while(rst2.next()) {
+				System.out.println(rst2.getInt(1)+",");
+				System.out.println("\t\t"+rst2.getString(2)+",");
+				System.out.println("\t\t"+rst2.getString(3)+",");
+				System.out.println("\t\t"+rst2.getString(4)+",");
+				System.out.println("\t\t"+rst2.getString(5)+",\n");
+				System.out.println();
+			}
+			ps2.close();
+			con2.close();
+			break;
+				
+				
+		}
+			System.out.println("Would you like to Continue add student so press Y/N");
+			re_use=sc.next().charAt(0);
+			}while(re_use=='y'||re_use=='Y');
+			System.out.println("......Thanks for opertion ......");
+	}}

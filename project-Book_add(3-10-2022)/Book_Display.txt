@@ -1,0 +1,32 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Book_display {
+	
+	public static void display() throws Exception {
+		String url="jdbc:mysql://localhost:3306/Student_Lib_Management";
+		String user_id="root";
+		String password="010101";
+		String quary="select * from  table_record";
+		Connection con=DriverManager.getConnection(url,user_id,password);
+		PreparedStatement ps=con.prepareStatement(quary);
+		ResultSet rst=ps.executeQuery();
+		System.out.println("BookId\t\tBook Title\t\tBook Author\t\tBook Category\t\tBook Price\n");
+		//applying while loop..
+		while(rst.next()) {
+			System.out.println();
+			System.out.println(rst.getInt(1)+",");
+			System.out.println("\t\t"+rst.getString(2)+",");
+			System.out.println("\t\t"+rst.getString(3)+",");
+			System.out.println("\t\t"+rst.getString(4)+",");
+			System.out.println("\t\t"+rst.getString(5)+",\n");
+			System.out.println();
+		}
+		ps.close();
+		con.close();
+	}
+
+}

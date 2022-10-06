@@ -1,0 +1,47 @@
+package Book_Store;
+
+import java.util.Scanner;
+
+public class Main_BookStore_Class {
+
+	public static void main(String[] args) {
+		Main_BookStore_Class obj=new Main_BookStore_Class();
+		try {
+			obj.manage();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+//creating method for display ..
+	public  void manage() throws Exception {
+		Book_Add obj_add=new Book_Add();
+		Book_Search obj_search =new Book_Search();
+		Book_display obj_display=new Book_display();
+		int choose;
+		Scanner sc =new Scanner(System.in);
+		char ch;
+		do {
+			System.err.println("Addition_Book Press:-1\nShow_All_Book Press:-2\nSearch Author,Category,Title Press:-3");
+			choose=sc.nextInt();
+			switch(choose) {
+			case 1:
+				obj_add.Add();
+				break;
+			case 2:
+				obj_display.display();
+				break;
+			case 3:
+				obj_search.serach();
+				break;
+				default:
+					System.out.println("Sorry! Your Input wrong value");
+			    break;
+			}
+			System.out.println("If You Want to operate operation again so press Y/N");
+			ch=sc.next().charAt(0);
+			}while(ch=='y'||ch=='Y');
+		System.out.println("Thank you for Using ...Come Again.....");
+		}
+
+}

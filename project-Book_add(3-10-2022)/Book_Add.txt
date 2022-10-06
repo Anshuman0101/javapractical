@@ -1,0 +1,81 @@
+package Book_Store;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Book_Add extends Student_Book  {
+	// making anohter class Book_Add and taking property Student_Book by Interitance..
+	
+//making a Constractor of Class Book_Add
+	public Book_Add() {
+		super(Id, title, author, category, price);
+		
+	}
+	//making a method for add data..
+	public void  Add() throws SQLException {
+		int option;
+		char re_use;
+		//applying do_while loop 
+		do {
+			String url="jdbc:mysql://localhost:3306/Student_Lib_Management";
+		    String user_id="root";
+		    String password="010101";
+		    
+		    Scanner sc=new Scanner(System.in);
+		    //Scanner is used for taking input 
+		    System.out.println("Enter your Serial_NO.:-");
+		    Id=sc.nextLine();
+		    System.out.println("Enter your Book Title:-");
+		    title=sc.nextLine();
+		    System.out.println("Enter your Book Author :-");
+		    author=sc.nextLine();
+		    System.out.println("Select Category which you want to add:-");
+		    System.out.println("press 1 for Computer_Science\npress 2 for Science\n3 press 3 for Novel_Story \n4 for digital_Marketing\n5 for Category to Add :-");
+		    option=sc.nextInt();
+		   // applying switch case....
+		    switch(option) {
+		    case 1:
+		    	category="Computer_Science";
+		    	break;
+		    case 2:
+		    	category="Science";
+		    	break;
+		    case 3:
+		    	category="Novel_Story";
+		    	break;
+		    case 4:
+		    	category="digital_Marketing";
+		    	break;
+		    case 5:
+		    	System.out.println("\nEnter Your Book_Category:-");
+		    	category=sc.nextLine();
+		    	break;
+		    	default:System.out.println("Sorry! give Choose Corret Option:-");
+		    	break;
+		    }
+		    System.out.println("Enter your Book Price:-");
+		    price=sc.nextFloat();
+		    String quary="insert into table_record(Book_Id ,Title,Author,Category,Price)values(?,?,?,?,?) ";
+		Connection con=DriverManager.getConnection(url,user_id,password);
+		PreparedStatement ps=con.prepareStatement(quary);
+		ps.setString(1,Id);
+		ps.setString(2,title);
+		ps.setString(3,author);
+		ps.setString(4,category);
+		ps.setFloat(5,price);
+		
+		System.out.println("The Inserted Book Details Are:\n\t"+"Book_Id :"+Id+"\n\tBook Title :"+title+"\n\tBook Author :"+author+"\n\tBook Category:"+category+"\n\tBook Price:"+price);
+		int res=ps.executeUpdate();
+		System.out.println("Result :"+res);
+		ps.close();
+		ps.close();
+		System.out.println("Would you like to Continue add student so press Y/N");
+		re_use=sc.next().charAt(0);
+		}while(re_use=='y'||re_use=='Y');
+		System.out.println("......Thanks for opertion ......");
+	}
+
+}
